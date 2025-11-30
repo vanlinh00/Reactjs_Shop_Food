@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import "./style.scss";
 import {
   AiOutlineFacebook,
@@ -7,11 +7,30 @@ import {
   AiOutlineGlobal,
   AiOutlineUser,
   AiOutlineMail,
+  AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { formatter } from "utils/formatter";
+import { ROUTERS } from "utils/router";
 
 const Header = () => {
+  const [menus] = useState([
+    { name: "Trang chủ", path: ROUTERS.USER.HOME },
+    { name: "Cửa hàng", path: ROUTERS.USER.PRODUCTS },
+    {
+      name: "Sản phẩm",
+      path: "",
+      isShowSubmenu: false,
+      child: [
+        { name: "Thịt", path: "" },
+        { name: "Thịt", path: "" },
+        { name: "Thịt", path: "" },
+      ],
+    },
+    { name: "Bài viết", path: ROUTERS.USER.PRODUCTS },
+    { name: "Liên hệ", path: ROUTERS.USER.PRODUCTS },
+  ]);
+
   return (
     <div className="header_top">
       <div className="container">
@@ -46,7 +65,7 @@ const Header = () => {
                   <AiOutlineGlobal />
                 </Link>
               </li>
-                  <li>
+              <li>
                 <Link to="">
                   <AiOutlineUser />
                 </Link>
@@ -57,9 +76,39 @@ const Header = () => {
         </div>
       </div>
       <div className="container">
-        <div className="col-xl-3 col-lg-3">LOGO</div>
-        <div className="col-xl-3 col-lg-3">MENUS</div>
-        <div className="col-xl-3 col-lg-3">PHONE</div>
+        <div className="row">
+          <div className="col-xl-3">
+            <div className="header_logo">
+              <h1>SiVi SHOP</h1>
+            </div>
+          </div>
+          <div className="col-xl-6">
+            <nav className="header_menu">
+              <ul>
+                {menus.map((menu, index) => (
+                  <li key={index} className={index === 0 ? "active" : ""}>
+                    <Link to={menu?.path}>{menu?.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+          <div className="col-xl-3">
+            <div className="header_cart">
+              <div className="header_cart_price">
+                <span>{formatter(1001230)}</span>
+              </div>
+              <ul>
+                <li>
+                  <Link to="#">
+                    <AiOutlineShoppingCart />
+                    <span>5</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
