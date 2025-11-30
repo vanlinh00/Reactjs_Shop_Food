@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import '_responsive.scss';
 
 html,
 body {
@@ -26,4 +27,21 @@ body {
 .col-6 {
     flex: 0 0 50%;
     max-width: 50%;
+}
+
+.col-xl-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+    
+  @include Responsive($DESKTOP) {
+  background: rgb(0, 128, 13);
+  }
+
+  @include Responsive($MEDIUM_DEVICE) {
+    background: red;
+  }
+
+  @include Responsive($SMALL_DEVICES) {
+    background: rgb(68, 255, 0);
+  }
 }
