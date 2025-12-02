@@ -1,52 +1,40 @@
-@import '_theme.scss';
-@import '_responsive.scss';
+@import "_theme.scss";
+@import "_responsive.scss";
 
 html,
 body {
-    margin: 0;
+  margin: 0;
 }
 
 * {
-    font-family: Roboto;
-    padding:0;
-    margin:0;
+  font-family: Roboto;
+  padding: 0;
+  margin: 0;
 }
 .container {
-    max-width: 1170px;
-    width: 100%;
-    padding-left: 150px;
-    padding-right: 15px;
- //   background: map-get($theme-colors,"main");
-   margin: auto;
+  max-width: 1170px;
+  width: 100%;
+  padding-left: 150px;
+  padding-right: 15px;
+  //   background: map-get($theme-colors,"main");
+  margin: auto;
 }
 
 .row {
   display: flex;
   flex-wrap: nowrap; // hoặc wrap nếu muốn xuống dòng khi nhỏ màn hình
   align-items: center;
-    justify-content: space-between; // hoặc center tùy bạn
-
+  justify-content: space-between; // hoặc center tùy bạn
 }
+
 .col-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 .col-xl-3 {
-   flex: 0 0 25%;
+  flex: 0 0 25%;
   max-width: 25%;
-    
-  // @include Responsive($DESKTOP) {
-  // background: rgb(0, 128, 13);
-  // }
-
-  // @include Responsive($MEDIUM_DEVICE) {
-  //   background: red;
-  // }
-
-  // @include Responsive($SMALL_DEVICES) {
-  //   background: rgb(68, 255, 0);
-  // }
 }
 
 .col-lg-6 {
@@ -66,5 +54,43 @@ body {
   .col-xl-6 {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+}
+
+@include Responsive($TABLET_DEVICE) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@include Responsive($MEDIUM_DEVICE) {
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@include Responsive($WIDE_MOBILE) {
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@include Responsive($SMALL_DEVICES) {
+  .col-xs-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
