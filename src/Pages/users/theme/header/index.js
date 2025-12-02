@@ -19,7 +19,7 @@ const Header = () => {
     { name: "Cửa hàng", path: ROUTERS.USER.PRODUCTS },
     {
       name: "Sản phẩm",
-      path: "",
+      path:ROUTERS.USER.PRODUCTS,
       isShowSubmenu: false,
       child: [
         { name: "Thịt", path: "" },
